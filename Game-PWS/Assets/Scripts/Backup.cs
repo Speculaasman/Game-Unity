@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class C2PlayerMovementaa : MonoBehaviour
 {
     Rigidbody rb;
     [SerializeField] float movementSpeed = 6f;
@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -30,9 +30,10 @@ public class PlayerMovement : MonoBehaviour
 
 
         rb.velocity = new Vector3(horizontalInput * movementSpeed, rb.velocity.y, verticalInput * movementSpeed);
-        
 
-        if (Input.GetButtonDown("Jump") && IsGrounded()) {
+
+        if (Input.GetButtonDown("Jump") && C2IsGrounded())
+        {
             rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
         }
 
@@ -47,9 +48,10 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    
-    bool IsGrounded() {
+
+    bool C2IsGrounded()
+    {
         return Physics.CheckSphere(groundCheck.position, 0.1f, ground);
-    } 
-    
+    }
+
 }
